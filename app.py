@@ -18,20 +18,20 @@ def index():
     src = request.query_string
     if(src):
       img = src[4:]
-      imglink = img.decode("utf-8")
+      imglink = img.decode("utf-8") #image url link extracted from query string
       fd = urlopen(imglink)
       f = io.BytesIO(fd.read())
-      color_thief = ColorThief(f)
+      color_thief = ColorThief(f)  #finding out dominant logo color using color thief
       rgb1 = color_thief.get_color(quality=1)
       urllib.request.urlretrieve(imglink,"sample.png")
       sampleImg = Image.open("sample.png")
-      sampleData = asarray(sampleImg)
+      sampleData = asarray(sampleImg)  #converting image to numpy array
       row = sampleData.shape[0]
       col = sampleData.shape[1]
       r=0
       g=0
       b=0
-      for i in range(10):
+      for i in range(10):   #finding average of border pixels to determine color of the border image
           for j in range(col):
                 r = r+sampleData[i][j][0]
                 g = g+sampleData[i][j][1]
@@ -55,7 +55,7 @@ def index():
       g = int(g/(20*(row+col)))
       b = int(b/(20*(row+col)))
       result = {
-          "logo_border": rgb2hex(r,g,b),
+          "logo_border": rgb2hex(r,g,b),  #converting (r,g,b) color to hex
           "dominant_color": rgb2hex(rgb1[0],rgb1[1],rgb1[2])
       }
       return jsonify(result)
