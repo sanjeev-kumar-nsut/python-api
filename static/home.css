@@ -1,0 +1,45 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    width:100%;
+    margin-bottom: 4px;
+    background-color:  #fafafa;
+}
+.container{
+    background-color: white;
+    width: 80%;
+}
+h1{
+    text-align: center;   
+    font-family: 'Source Sans Pro', sans-serif;
+}
+h2{
+    font-family: 'Roboto Slab', serif;
+    text-align: center;
+}
+a{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    margin: 4px;
+    font-family: 'Roboto Slab', serif;
+}
+.sample{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.sample img{
+    width:600px;
+    height:400px;
+}
+.sample a{
+    font-size:1.6rem;
+}
+div{
+    margin-left: 1%;
+    margin-bottom: 1%;
+}
